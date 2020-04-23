@@ -22,10 +22,10 @@
                                 <ul>
                                     {% for item in cart %}
                                     <li>Items <span>{{ item.quantity }}x {{ item.product.name }}</span></li> 
-
+                                    {% endfor %}
                                     <li>Total<span>${{ item.total_price }}</span></li></li>
                                     <li class="last">Total<span>${{ item.total_price }}</span></li>
-                                    {% endfor %}
+                                    
                                 </ul>
                             </div>
                         </div>

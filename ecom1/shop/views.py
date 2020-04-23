@@ -42,8 +42,10 @@ def home(request):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     product = Product.objects.all()
-    banner = Product.objects.filter(banner2=True)
-    trending = Product.objects.filter(trending=True)
+    banner = Product.objects.filter(banner2=True)[0:3]
+    banner1 = Product.objects.filter(banner1=True)[0]
+    hot_item = Product.objects.filter(hot_item=True)
+    on_sale = Product.objects.filter(on_sale=True)
 
 
     context = {
@@ -52,7 +54,9 @@ def home(request):
         'products': products,
         'product':product,
         'banner':banner,
-        'trending':trending
+        'banner1':banner1,
+        'hot_item':hot_item,
+        'on_sale':on_sale
     }
     return render(request, 'shop/product/home.html', context)
 

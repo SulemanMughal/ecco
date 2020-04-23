@@ -6,76 +6,6 @@
 
 {% block content %}
 
-<section class="hero-slider" style="width: 90%;padding-left: 10%;">
-  <!-- Single Slider -->
-  <div class="single-slider">
-    <div class="container">
-      <div class="row no-gutters">
-        <div class="col-lg-9 offset-lg-3 col-12">
-          <div class="text-inner">
-            <div class="row">
-              <div class="col-lg-7 col-12">
-                <div class="hero-text">
-                  <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-                  <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
-                  <div class="button">
-                    <a href="#" class="btn">Shop Now!</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/ End Single Slider -->
-</section>
-
-<section class="small-banner section" style="padding-left: 9%;padding-right: 9%;">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Single Banner  -->
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="single-banner">
-          <img src="https://via.placeholder.com/600x370" alt="#">
-          <div class="content">
-            <p>Man's Collectons</p>
-            <h3>Summer travel <br> collection</h3>
-            <a href="#">Discover Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- /End Single Banner  -->
-      <!-- Single Banner  -->
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="single-banner">
-          <img src="https://via.placeholder.com/600x370" alt="#">
-          <div class="content">
-            <p>Bag Collectons</p>
-            <h3>Awesome Bag <br> 2020</h3>
-            <a href="#">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- /End Single Banner  -->
-      <!-- Single Banner  -->
-      <div class="col-lg-4 col-12">
-        <div class="single-banner tab-height">
-          <img src="https://via.placeholder.com/600x370" alt="#">
-          <div class="content">
-            <p>Flash Sale</p>
-            <h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-            <a href="#">Discover Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- /End Single Banner  -->
-    </div>
-  </div>
-</section>
-<!-- End Small Banner -->
-
 
 <section class="product-area shop-sidebar shop section" >
   <div class="container">
@@ -126,27 +56,28 @@
         
               <!-- End Single Post -->
               <div class="single-widget range">
-                <h3 class="title">Shop by Price</h3>
+                <h3>Search Filters</h3>
                 <div class="price-filter">
                   <div class="price-filter-inner">
+                    <p>Shop by Price</p>
+                      <br>
                     <div id="slider-range"></div>
                       <div class="price_slider_amount">
+                        
                       <div class="label-input">
                         <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
                       </div>
                     </div>
                   </div>
                 </div>
+                <hr>
+                <p >Shop by Availablity</p>
+              
                 <ul class="check-box-list">
                   <li>
-                    <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+                    <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">Fast Availablity</label>
                   </li>
-                  <li>
-                    <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
-                  </li>
-                  <li>
-                    <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
-                  </li>
+                
                 </ul>
               </div>
             <!--/ End Single Widget -->
@@ -212,7 +143,7 @@
     <div class="single-product">
       <div class="product-img" >
         <a href="{{ product.get_absolute_url }}">
-          <img class="default-img" style="width: 70%;height: 2wh;" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" >
+          <img class="default-img" style="width: 750px;height: 350px;" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" >
           <img class="hover-img" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" >
       </a>
      

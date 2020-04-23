@@ -15,7 +15,7 @@ class Order(models.Model):
     country = models.CharField(max_length=100)
     province = models.CharField(max_length=100 , choices=provinces)
     city = models.CharField(max_length=100)
-    unit_no = models.CharField(max_length=100)
+    unit_no = models.CharField(max_length=100, blank=True)
     postal_code = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

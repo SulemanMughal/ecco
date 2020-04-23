@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
-                                        <label>Unit Number<span>*</span></label>
+                                        <label>Unit Number</label>
                                         <input type="text" name="unit_no" placeholder="" required="required">
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                                 <ul>
                                     {% for item in cart %}
                                     <li>Items <span>{{ item.quantity }}x {{ item.product.name }}</span></li> 
-
+                                    
                                     <li>Total<span>${{ item.total_price }}</span></li></li>
                                     <li class="last">Total<span>${{ item.total_price }}</span></li>
                                     {% endfor %}

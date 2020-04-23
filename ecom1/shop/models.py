@@ -34,14 +34,12 @@ class Product(models.Model):
     ###############Design Fields ##################
     banner1   = models.BooleanField(default=False)
     banner2   = models.BooleanField(default=False)
-
-    trending = models.BooleanField(default=False)
     hot_item = models.BooleanField(default=False)
     on_sale  = models.BooleanField(default=False)
-    best_seller = models.BooleanField(default=False)
-    top_viewed  = models.BooleanField(default=False)
+    fast_available = models.BooleanField(default=False)
+  
     class Meta:
-        ordering = ('name', )
+        ordering = ('-updated_at','name' )
         index_together = (('id', 'slug'),)
 
     def __str__(self):
