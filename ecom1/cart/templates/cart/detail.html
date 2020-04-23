@@ -1,0 +1,99 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart
+{% endblock %}
+
+
+{% block content %}
+
+
+        <div class="shopping-cart section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Shopping Summery -->
+                        <table class="table shopping-summery">
+                <thead >
+                    <tr class="main-hading">
+                        <th class="text-center">Image</th>
+                        <th class="text-center">Product</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Remove</th>
+                        <th class="text-center">Unit Price</th>
+                        <th class="text-center">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in cart %}
+                    {% with product=item.product  %}
+                        <tr>
+                            <td>
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                                </a>
+                            </td>
+                            <td>{{ product.name }}</td>
+                            <td>
+                                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ item.update_quantity_form.quantity }}
+                                    {{ item.update_quantity_form.update }}
+                                    <input type="submit" value="Update" class="btn btn-info">
+                                </form>
+                            </td>
+                            <td>
+                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                            </td>
+                            <td>${{ item.price }}</td>
+                            <td>${{ item.total_price }}</td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+             
+                </tbody>
+            </table>
+     
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <!-- Total Amount -->
+            <div class="total-amount">
+                <div class="row">
+                    <div class="col-lg-8 col-md-5 col-12">
+                        <!-- <div class="left">
+                            <div class="coupon">
+                                <form action="#" target="_blank">
+                                    <input name="Coupon" placeholder="Enter Your Coupon">
+                                    <button class="btn">Apply</button>
+                                </form>
+                            </div>
+                            <div class="checkbox">
+                                <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+10$)</label>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-lg-4 col-md-7 col-12">
+                        <div class="right">
+                            <ul>
+                                <li>Cart Subtotal<span>${{ cart.get_total_price }}</span></li>
+                                <li>Shipping<span>Free</span></li>
+                                <li class="last">You Pay<span>${{ cart.get_total_price }}</span></li>
+                            </ul>
+                            <div class="button5">
+                                <a href="{% url 'orders:order_create' %}" class="btn">Checkout</a>
+                                <a href="{% url 'shop:product_list' %}" class="btn">Continue shopping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Total Amount -->
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% autoescape off %}
+Hi Zach,
+
+You have received a contact application on your website with
+
+Name:  {{user}} ,
+Email: {{email}},
+Subject:  {{subject}},
+Message:  {{message}}  
+
+Please click on the link below to go to admin:
+
+http://{{ domain }}/admin
+{% endautoescape %}

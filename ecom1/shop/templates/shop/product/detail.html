@@ -1,0 +1,72 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+ <div class="container">
+          <div class="card">
+         
+            <div class="card-body">
+              <div class="row no-gutters">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                  <!-- Product Slider -->
+                        <div class="single-slider">
+                          <img style="width: 100%;height: 10wh;" src="/media/{{ product.image }}" alt="#">
+                        </div>
+                 
+                   
+                  <!-- End Product slider -->
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <br>  
+                  <div class="quickview-content">
+                    <h2>{{ product.name }}</h2>
+                    <div class="quickview-ratting-review">
+                      <!-- <div class="quickview-ratting-wrap">
+                        <div class="quickview-ratting">
+                          <i class="yellow fa fa-star"></i>
+                          <i class="yellow fa fa-star"></i>
+                          <i class="yellow fa fa-star"></i>
+                          <i class="yellow fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#"> (1 customer review)</a>
+                      </div> -->
+                      <div class="quickview-stock">
+                        <span style="margin-left:-25px;"><i class="fa fa-check-circle-o"></i> in stock</span>
+                      </div>
+                    </div>
+                    <h3>${{ product.price }}</h3>
+                    <div class="quickview-peragraph">
+                      <p>{{ product.description }}</p>
+                    </div>
+            <br>
+               
+                    <div class="add-to-cart">
+                      <form action="{% url "cart:cart_add" product.id %}" method="post">
+                        {% csrf_token %}
+                        {{ cart_product_form }}
+                        <input type="submit" value="add to cart" class="btn">
+
+                    </form>
+                    </div>
+                    <div class="default-social">
+                      <h4 class="share-now">Share:</h4>
+                      <ul>
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}

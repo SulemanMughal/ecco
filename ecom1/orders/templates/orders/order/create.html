@@ -1,0 +1,204 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Checkout
+{% endblock %}
+
+{% block content %}
+
+
+</div>
+	<!-- Start Checkout -->
+    <section class="shop checkout section">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-6 col-12">
+                    <div class="checkout-form">
+                        <h2>Make Your Checkout Here</h2>
+                        <p>Please fill the following in order to checkout more quickly</p>
+                        <!-- Form -->
+                        <form class="form" method="post" action="#" id="payment-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <h3>Personal Information</h3>
+                                <br>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <br>
+                                    <div class="form-group">
+                                        <label>First Name<span>*</span></label>
+                                        <input type="text" name="first_name" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Last Name<span>*</span></label>
+                                        <input type="text" name="last_name" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Email Address<span>*</span></label>
+                                        <input type="email" name="email" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Phone Number<span>*</span></label>
+                                        <input type="number" name="contact_number" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <h3>Shipping Information</h3>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Country<span>*</span></label>
+                                        <input type="text" name="country" placeholder="" required="required">
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Province<span>*</span></label>
+                                        <select name="province" id="state-province">
+                                            <option value="Alberta" selected="selected">Alberta</option>
+                                            <option value="British Columbia" > British Columbia</option>
+                                            <option value="Manitoba" >Manitoba</option>
+                                            <option value="New Brunswick">New Brunswick</option>
+                                            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                            <option value="Nova Scotia">Nova Scotia</option>
+                                            <option value="Ontario"> Ontario</option>
+                                            <option value="Prince Edward Island'"> Prince Edward Island'</option>
+                                            <option value="Quebec">Quebec </option>
+                                            <option value="Saskachewan">Saskachewan </option>
+                                      
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>City<span>*</span></label>
+                                        <input type="text" name="city" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Unit Number<span>*</span></label>
+                                        <input type="text" name="unit_no" placeholder="" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Address <span>*</span></label>
+                                        <input type="text" name="address" placeholder="" required="required">
+                                    </div>
+                                </div>
+                             
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Postal Code<span>*</span></label>
+                                        <input type="text" name="postal_code" placeholder="" required="required">
+                                    </div>
+
+                                </div>
+                                <!-- <div class="button">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;  <button class="btn" type="submit">Submit</button>
+                                </div> -->
+                            
+                            </div>
+                       
+                        
+                        <!--/ End Form -->
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-12">
+                    <div class="order-details">
+                        <!-- Order Widget -->
+                        <div class="single-widget">
+                            <h2>CART  TOTALS</h2>
+                            <div class="content">
+                                <ul>
+                                    {% for item in cart %}
+                                    <li>Items <span>{{ item.quantity }}x {{ item.product.name }}</span></li> 
+
+                                    <li>Total<span>${{ item.total_price }}</span></li></li>
+                                    <li class="last">Total<span>${{ item.total_price }}</span></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!--/ End Order Widget -->
+                        <!-- Order Widget -->
+                        <div class="single-widget">
+                            <h2>Payments</h2>
+                            <br>
+                            <div  style="margin-left: 30px;">
+                                <div id="card-element">
+                                </div>
+                                <div id="card-errors" role="alert"></div>
+                                <br>
+                            
+                             <div class="button" style="margin-left: -20px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp;  <button class="btn" type="submit">Submit</button>
+                            </div>
+                            
+                        </form>
+
+
+
+                            </div>
+                        </div>
+                        <!--/ End Order Widget -->
+                        <!-- Payment Method Widget -->
+                        <!-- <div class="single-widget payement">
+                            <div class="content">
+                                <img src="{% static 'images/payment-method.png' %}" alt="#">
+                            </div>
+                        </div> -->
+                        <!--/ End Payment Method Widget -->
+                        <!-- Button Widget -->
+                        <!-- <div class="single-widget get-button">
+                            <div class="content">
+                                <div class="button">
+                                    <form  method="post">
+                                        {% csrf_token %}
+                                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                data-key="{{ key }}"
+                                                data-description={{order.first_name}}{{order.last_name}}
+                                                data-amount={{total}}
+                                                data-locale="auto"></script>
+                                      </form>
+
+                                 
+ 
+                                    
+                                </div>
+                            </div>
+                        </div> -->
+                        <!--/ End Button Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    
+    <!--/ End Checkout -->
+    <script src="https://js.stripe.com/v3/"></script>
+                     
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
