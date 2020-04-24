@@ -89,6 +89,17 @@ def contact(request):
 def search(request):
 
     query = request.GET.get('query', None)
+    query1 = request.GET.get('query1', None)
+    result = (query1.split('-'))
+    value1 =(result[0][1:])
+    value2 =(result[1][2:])
+
+    query2 = request.GET.get('query2', None)
+    if query2== 'on':
+        query2=True
+    else:
+        query2=False
+    print(query2)
     categories = Category.objects.all()
     product = Product.objects.all()
     products = Product.objects.all()
@@ -100,7 +111,15 @@ def search(request):
     
 
         )
-   
+    if query1 is not None:
+        products = products.filter(
+            Q(price__gte=value1) &
+            Q(price__lte=value2) &
+            Q(fast_available__exact=query2) 
+            
+    
+
+        )
     context = {
 
         'query':query,

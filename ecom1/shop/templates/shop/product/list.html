@@ -61,11 +61,13 @@
                   <div class="price-filter-inner">
                     <p>Shop by Price</p>
                       <br>
+                     <form method="GET" action="{% url 'shop:search' %}" >
                     <div id="slider-range"></div>
                       <div class="price_slider_amount">
                         
                       <div class="label-input">
-                        <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
+                        <span>Range:</span><input type="text" id="amount" name="query1" placeholder="Add Your Price"/>
+                    
                       </div>
                     </div>
                   </div>
@@ -75,9 +77,11 @@
               
                 <ul class="check-box-list">
                   <li>
-                    <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">Fast Availablity</label>
+                    <label class="checkbox-inline" for="1"><input name="query2" id="1" type="checkbox">Fast Availablity</label>
                   </li>
-                
+                  <hr>
+                  <div class="text-center"><button type="submit" class="btn btn-info btn-lg">Search</button></div>
+                </form>
                 </ul>
               </div>
             <!--/ End Single Widget -->
@@ -175,7 +179,7 @@
   
   </div>
 
-		
+</div></div></div></section>
 	
   
 
