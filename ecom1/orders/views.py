@@ -26,14 +26,13 @@ def order_create(request):
     key=settings.STRIPE_PUBLISHABLE_KEY
     cart = Cart(request)
     print(cart.get_total_price())
-    
+    order=None
     if request.method == 'POST':
      
         form = OrderCreateForm(request.POST)
         if form.is_valid():
-            new=form.save(commit=False)
-            new.paid=True
-            new.save()
+          
+  
             order = form.save()
             for item in cart:
                 OrderItem.objects.create(
@@ -44,12 +43,12 @@ def order_create(request):
                    
                 )
             cart.clear()
-            charge = stripe.Charge.create(
-            amount=int(cart.get_total_price())*100,
-            currency='usd',
-            description=('Payment for Order id {} '.format(order.id)),
-            source=request.POST['stripeToken']
-        )
+        #     charge = stripe.Charge.create(
+        #     amount=int(cart.get_total_price())*100,
+        #     currency='usd',
+        #     description=('Payment for Order id {} '.format(order.id)),
+        #     source=request.POST['stripeToken']
+        # )
             
         return render(request, 'orders/order/created.html', {'order': order})
     else:
