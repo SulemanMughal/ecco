@@ -131,3 +131,13 @@ def search(request):
     }
 
     return render(request, 'shop/product/list.html', context)
+
+
+def privacy(request):
+    return render(request,'policy/privacy.html')
+
+def PolicyReturn(request):
+    return render(request,'policy/Return.html')
+
+def Shipment(request):
+    return render(request,'policy/shipment.html')

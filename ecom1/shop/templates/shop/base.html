@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-    <title>Eshop - eCommerce HTML5 Template.</title>
+    <title>ARAVIT</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/aravit logo png.png' %}">
     <!-- Web Font -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
@@ -58,7 +58,7 @@
                     <div class="col-lg-2 col-md-2 col-12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{% url 'shop:home' %}"><img src="{% static 'images/logo.png' %}"
+                            <a href="{% url 'shop:home' %}"><img style="height: 80px;margin-top: -25%;" src="{% static 'images/aravit logo png.png' %}"
                                     alt="logo"></a>
                         </div>
                         <!--/ End Logo -->
@@ -222,7 +222,7 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="{% static 'images/logo2.png'  %}" alt="#"></a>
+								<a href="index.html"><img src="{% static 'images/aravit logo png.png'   %}" alt="#" style="background-color: rgb(252, 252, 252);height: 100px;margin-top: 0%;"></a>
 							</div>
 							<p class="text">We provide seamless customer services with best quality products and appropriate prices.</p>
 							<p class="call">Got Question? Email us 24/7<span><a href="mailto:customerservice@countdownltd.com">customerservice@countdownltd.com</a></span></p>
@@ -250,9 +250,9 @@
 							<ul>
 								<li><a href="#">Payment Methods</a></li>
 								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="{% url 'shop:return-policy' %}">Returns</a></li>
+								<li><a href="{% url 'shop:Shipment' %}">Shipping</a></li>
+								<li><a href="{% url 'shop:privacy-policy' %}">Privacy Policy</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->

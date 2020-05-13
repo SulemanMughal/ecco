@@ -7,19 +7,20 @@ provinces = (('Alberta','Alberta'),('British Columbia','British Columbia'),('Man
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=60)
-    last_name = models.CharField(max_length=60)
-    email = models.EmailField()
-    address = models.CharField(max_length=150)
+    first_name   = models.CharField(max_length=60)
+    last_name    = models.CharField(max_length=60)
+    email        = models.EmailField()
+    address      = models.CharField(max_length=150)
     contact_number = models.CharField(max_length=30)
-    country = models.CharField(max_length=100 ,default='Canada',blank=True)
-    province = models.CharField(max_length=100 , choices=provinces)
-    city = models.CharField(max_length=100)
-    unit_no = models.CharField(max_length=100, blank=True)
-    postal_code = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False,blank=True)
+    country      = models.CharField(max_length=100 ,default='Canada',blank=True)
+    province     = models.CharField(max_length=100 , choices=provinces)
+    city         = models.CharField(max_length=100)
+    unit_no      = models.CharField(max_length=100, blank=True)
+    postal_code  = models.CharField(max_length=100)
+    created      = models.DateTimeField(auto_now_add=True)
+    updated      = models.DateTimeField(auto_now=True)
+    gift         = models.BooleanField(default=False,blank=True)
+    paid         = models.BooleanField(default=False,blank=True)
 
     class Meta:
         ordering = ('-created', )

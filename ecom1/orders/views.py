@@ -21,7 +21,7 @@ braintree.Configuration.configure(braintree.Environment.Sandbox,
 
 #####################################################################
 
-
+cities= ['MONTREAL','LAVAL','LONGUEIL','TERREBONNE','BROSSARD','REPENTIGNY','BLAINVILLE','MIRABEL','Saint-Jerome','DOLLARD-DES-ORMEAUX']
 def order_create(request):
     key=settings.STRIPE_PUBLISHABLE_KEY
     cart = Cart(request)
@@ -43,13 +43,10 @@ def order_create(request):
                    
                 )
             cart.clear()
-        #     charge = stripe.Charge.create(
-        #     amount=int(cart.get_total_price())*100,
-        #     currency='usd',
-        #     description=('Payment for Order id {} '.format(order.id)),
-        #     source=request.POST['stripeToken']
-        # )
-            
+            for city in cities:
+                if request.POST['city'].lower()==city.lower():
+                    return render(request, 'orders/order/fast delivery.html', {'order': order})
+
         return render(request, 'orders/order/created.html', {'order': order})
     else:
         form = OrderCreateForm()
@@ -207,3 +204,12 @@ def charge(request,id,slug): # new
 #     return HttpResponse('Ok')
 
 
+
+
+     #     charge = stripe.Charge.create(
+        #     amount=int(cart.get_total_price())*100,
+        #     currency='usd',
+        #     description=('Payment for Order id {} '.format(order.id)),
+        #     source=request.POST['stripeToken']
+        # )
+            

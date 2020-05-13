@@ -31,6 +31,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField( blank=True)
+    image_1 = models.ImageField( blank=True)
+    image_2 = models.ImageField( blank=True)
     ###############Design Fields ##################
     banner1   = models.BooleanField(default=False)
     banner2   = models.BooleanField(default=False)
